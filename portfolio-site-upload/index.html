@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Yadi Liu — Director of Photography" />
+    <title>Yadi Liu — Director of Photography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .film-project-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+      .film-project + .film-project { margin:0; padding:0; border:0; }
+      .film-project-open img { aspect-ratio:auto; height:auto; object-fit:contain; filter:grayscale(1); opacity:1; transition:filter .35s ease, transform .45s ease; }
+      .film-project-open:hover img { filter:grayscale(0); opacity:1; }
+      .project-meta { display:block; margin:16px 0 0; }
+      .project-meta h2 { font-size:clamp(27px,2.7vw,42px); margin-bottom:10px; }
+      .project-meta p { margin:4px 0 0; }
+      .photo-project-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+      .photo-project-open { display:block; position:relative; color:#fff; overflow:hidden; }
+      .photo-project-open img { display:block; width:100%; height:100%; aspect-ratio:16/9; object-fit:contain; background:#111; filter:grayscale(1); transition:filter .35s ease, transform .45s ease; }
+      .photo-project-open:hover img { filter:grayscale(0); transform:scale(1.015); }
+      .photo-project-open span { position:absolute; right:18px; bottom:15px; font:10px 'DM Mono',monospace; letter-spacing:.09em; text-transform:uppercase; }
+      .photo-project-meta { margin-top:16px; }.photo-project-meta h2 { font:500 clamp(28px,3vw,44px)/.95 'Playfair Display',serif; letter-spacing:-.05em; margin:0 0 10px; }.photo-project-meta p { margin:0; font:10px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.08em; }
+      @media (max-width:720px) { .film-project-grid,.photo-project-grid { grid-template-columns:1fr; gap:48px; } }
+    </style>
+  </head>
+  <body>
+    <header class="nav">
+      <a class="wordmark" href="#top">YADI <em>LIU</em></a>
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu" aria-label="Open menu">Menu</button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Introduction">
+        <div class="hero-image"><span>Paris, 2025 · Personal work</span></div>
+        <div class="hero-copy">
+          <p class="eyebrow">Director of Photography</p>
+          <h1>Everything moves<br /><i>even when still.</i></h1>
+          <a class="round-link" href="#work">Explore work <span>↘</span></a>
+        </div>
+        <p class="hero-note">Film<br />Photography<br />Commercial</p>
+      </section>
+
+      <section id="work" class="work">
+        <div class="section-head">
+          <p class="eyebrow">01 — Selected work</p>
+          <p class="intro">A moving-image practice between intimacy, texture and light.</p>
+        </div>
+        <div class="project-grid">
+          <a class="project tall film" href="#films"><div class="placeholder one"></div><span>01</span><h2>Films</h2><p>Narrative / Music / Short form</p></a>
+          <a class="project photo" href="#photography"><div class="placeholder three"></div><span>02</span><h2>Photography</h2><p>Personal work / Editorial</p></a>
+          <a class="project commercial" href="#commercial"><div class="placeholder two"></div><span>03</span><h2>Commercial</h2><p>Brand / Fashion / Beauty</p></a>
+        </div>
+      </section>
+
+      <section id="films" class="film-series">
+        <div class="section-head">
+          <p class="eyebrow">Film</p>
+          <p class="intro">Selected narrative work.</p>
+        </div>
+        <div class="film-project-grid">
+        <article class="film-project">
+          <a class="film-project-open" href="asphalte.html" aria-label="Open Asphalte project">
+            <img src="assets/photos/asphalte-cover.jpg" alt="Two women resting in a sunlit room" />
+            <span>View project ↗</span>
+          </a>
+          <div class="project-meta">
+            <h2>Asphalte</h2>
+            <p>Narrative Short Film</p>
+            <p>Director of Photography — Yadi Liu</p>
+            <p>Director — Lara Cléret</p>
+          </div>
+        </article>
+        <article class="film-project">
+          <a class="film-project-open" href="after-all.html" aria-label="Open After All project">
+            <img src="assets/photos/after-all-01.jpg" alt="Two people sitting opposite each other in a studio" />
+            <span>View project ↗</span>
+          </a>
+          <div class="project-meta">
+            <h2>After All</h2>
+            <p>Narrative Short Film</p>
+            <p>Director of Photography — Yadi Liu</p>
+            <p>Director — Zhongyan Liu</p>
+          </div>
+        </article>
+        <article class="film-project">
+          <a class="film-project-open" href="water.html" aria-label="Open I Should Make Use of Water project">
+            <img src="assets/photos/water-01.jpg" alt="A woman and child in a warm living room" />
+            <span>View project ↗</span>
+          </a>
+          <div class="project-meta">
+            <h2>I Should Make Use of Water</h2>
+            <p>Narrative Short Film</p>
+            <p>Director of Photography — Yadi Liu</p>
+            <p>Director — Wen Zhao</p>
+          </div>
+        </article>
+        </div>
+      </section>
+
+      <section id="photography" class="photo-series">
+        <div class="section-head">
+          <p class="eyebrow">01.1 — Photography</p>
+          <p class="intro">Personal work.</p>
+        </div>
+        <div class="photo-project-grid">
+          <article class="photo-project"><a class="photo-project-open" href="photography-bw.html"><img src="assets/photos/paris-01.jpg" alt="Portrait in front of the Eiffel Tower, Paris" /><span>View project ↗</span></a><div class="photo-project-meta"><h2>Black &amp; White</h2><p>Personal photography</p></div></article>
+          <article class="photo-project"><a class="photo-project-open" href="photography-colour.html"><img src="assets/photos/yanan-01.jpg" alt="Hands holding playing cards, Yan'an" /><span>View project ↗</span></a><div class="photo-project-meta"><h2>Colour</h2><p>Personal photography</p></div></article>
+        </div>
+      </section>
+
+      <section id="commercial" class="commercial-series">
+        <div class="section-head">
+          <p class="eyebrow">Commercial</p>
+          <p class="intro">Selected commercial work.</p>
+        </div>
+        <div class="commercial-grid">
+          <figure class="commercial-item hero-commercial"><img src="assets/photos/commercial-01.jpg" alt="Silhouette portrait against dramatic light" /><figcaption>Commercial portraits — 01</figcaption></figure>
+          <figure class="commercial-item"><img src="assets/photos/commercial-02.jpg" alt="Black and white fashion portrait" /><figcaption>Commercial portraits — 02</figcaption></figure>
+          <figure class="commercial-item"><img src="assets/photos/commercial-03.jpg" alt="Colour fashion portrait" /><figcaption>Commercial portraits — 03</figcaption></figure>
+        </div>
+      </section>
+
+    </main>
+
+    <footer id="contact">
+      <p class="eyebrow">03 — Contact</p>
+      <a class="email" href="mailto:hello@yadiliu.com">Let's make<br /><i>something.</i></a>
+      <div class="footer-bottom"><span>© <span id="year"></span> Yadi Liu</span><span>Instagram &nbsp; Vimeo &nbsp; Email</span></div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
