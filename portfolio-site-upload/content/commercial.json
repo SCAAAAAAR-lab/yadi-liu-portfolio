@@ -1,0 +1,7 @@
+{
+  "images": [
+    { "image": "/assets/photos/commercial-01.jpg", "alt": "Silhouette portrait against dramatic light", "caption": "Commercial portraits — 01" },
+    { "image": "/assets/photos/commercial-02.jpg", "alt": "Black and white fashion portrait", "caption": "Commercial portraits — 02" },
+    { "image": "/assets/photos/commercial-03.jpg", "alt": "Colour fashion portrait", "caption": "Commercial portraits — 03" }
+  ]
+}
