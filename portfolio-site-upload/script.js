@@ -66,8 +66,110 @@ async function loadGallery() {
   prepareImages();
 }
 
+function escapeHtml(value = '') {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
+
+async function fetchJson(path) {
+  const response = await fetch(path, { cache: 'no-store' });
+  if (!response.ok) throw new Error(`Unable to load ${path}`);
+  return response.json();
+}
+
+async function loadSiteSettings() {
+  if (!document.querySelector('[data-hero-line-1]')) return;
+  try {
+    const settings = await fetchJson('content/site.json');
+    const fields = {
+      '[data-hero-line-1]': settings.hero_line_1,
+      '[data-hero-line-2]': settings.hero_line_2,
+      '[data-film-intro]': settings.film_intro,
+      '[data-photography-intro]': settings.photography_intro,
+      '[data-commercial-intro]': settings.commercial_intro,
+    };
+    Object.entries(fields).forEach(([selector, value]) => {
+      const element = document.querySelector(selector);
+      if (element && value) element.textContent = value;
+    });
+    const email = document.querySelector('[data-contact-email]');
+    if (email && settings.email) email.href = `mailto:${settings.email}`;
+  } catch (error) {
+    // The existing homepage remains visible if settings cannot load.
+  }
+}
+
+function filmProjectCard(project) {
+  const title = escapeHtml(project.title);
+  const type = escapeHtml(project.type);
+  const role = escapeHtml(project.role);
+  const director = escapeHtml(project.director);
+  const slug = encodeURIComponent(project.slug);
+  return `<article class="film-project">
+    <a class="film-project-open" href="film.html?project=${slug}" aria-label="Open ${title} project">
+      <img src="${escapeHtml(project.cover)}" alt="${escapeHtml(project.cover_alt || project.title)}" />
+      <span>View project ↗</span>
+    </a>
+    <div class="project-meta">
+      <h2>${title}</h2><p>${type}</p><p>${role}</p><p>${director}</p>
+    </div>
+  </article>`;
+}
+
+async function loadFilmProjects() {
+  const grid = document.querySelector('[data-film-projects]');
+  if (!grid) return;
+  try {
+    const { projects } = await fetchJson('content/films.json');
+    if (Array.isArray(projects) && projects.length) grid.innerHTML = projects.map(filmProjectCard).join('');
+  } catch (error) {
+    // Existing project cards stay visible when the content file cannot load.
+  }
+}
+
+async function loadFilmPage() {
+  if (!document.body.matches('[data-film-page]')) return;
+  const slug = new URLSearchParams(window.location.search).get('project');
+  try {
+    const { projects } = await fetchJson('content/films.json');
+    const project = projects.find((item) => item.slug === slug) || projects[0];
+    if (!project) return;
+    document.title = `${project.title} — Yadi Liu`;
+    document.querySelector('[data-film-type]').textContent = project.type || 'Film';
+    document.querySelector('[data-film-title]').textContent = project.title;
+    document.querySelector('[data-film-role]').textContent = project.role || '';
+    document.querySelector('[data-film-director]').textContent = project.director || '';
+    const stills = document.querySelector('[data-film-stills]');
+    stills.setAttribute('aria-label', `${project.title} film stills`);
+    stills.innerHTML = (project.images || []).map(({ image, alt = '', caption = '' }) => `<figure><img src="${escapeHtml(image)}" alt="${escapeHtml(alt)}" /><figcaption>${escapeHtml(caption)}</figcaption></figure>`).join('');
+    prepareImages();
+  } catch (error) {
+    document.querySelector('[data-film-title]').textContent = 'Project unavailable';
+  }
+}
+
+async function loadCommercialGallery() {
+  const grid = document.querySelector('[data-commercial-gallery]');
+  if (!grid) return;
+  try {
+    const { images } = await fetchJson('content/commercial.json');
+    if (!Array.isArray(images) || !images.length) return;
+    grid.innerHTML = images.map(({ image, alt = '', caption = '' }, index) => `<figure class="commercial-item${index === 0 ? ' hero-commercial' : ''}"><img src="${escapeHtml(image)}" alt="${escapeHtml(alt)}" /><figcaption>${escapeHtml(caption)}</figcaption></figure>`).join('');
+  } catch (error) {
+    // Existing commercial images stay visible when the content file cannot load.
+  }
+}
+
 prepareImages();
 loadGallery();
+loadSiteSettings();
+loadFilmProjects();
+loadFilmPage();
+loadCommercialGallery();
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closeLightbox();
