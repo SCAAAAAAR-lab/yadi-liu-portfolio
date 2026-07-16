@@ -35,7 +35,7 @@ collections:
             summary: "{{fields.title}}"
             fields:
               - { label: "Title", name: "title", widget: "string" }
-              - { label: "URL name", name: "slug", widget: "string", hint: "Lowercase English, for example: my-new-film" }
+              - { label: "URL name (optional)", name: "slug", widget: "string", required: false, hint: "You can leave this empty; the website will create it from the title." }
               - { label: "Type", name: "type", widget: "string", default: "Narrative Short Film" }
               - { label: "Your role", name: "role", widget: "string", default: "Director of Photography — Yadi Liu" }
               - { label: "Director", name: "director", widget: "string", required: false }
