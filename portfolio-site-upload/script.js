@@ -108,8 +108,10 @@ function filmProjectCard(project) {
   const type = escapeHtml(project.type);
   const role = escapeHtml(project.role);
   const director = escapeHtml(project.director);
-  const slug = encodeURIComponent(project.slug || project.title.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''));
-  return `<article class="film-project">
+  const projectSlug = project.slug || project.title.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const slug = encodeURIComponent(projectSlug);
+  const cardClass = projectSlug === 'daughter-of-the-apsara' ? ' film-project--compact' : '';
+  return `<article class="film-project${cardClass}">
     <a class="film-project-open" href="film.html?project=${slug}" aria-label="Open ${title} project">
       <img src="${escapeHtml(project.cover)}" alt="${escapeHtml(project.cover_alt || project.title)}" />
       <span>View project ↗</span>
