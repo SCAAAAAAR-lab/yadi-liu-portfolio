@@ -1,3 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Yadi Liu — Director of Photography" />
+    <title>Yadi Liu — Director of Photography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .film-project-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+      .film-project + .film-project { margin:0; padding:0; border:0; }
+      .film-project-open img { aspect-ratio:auto; height:auto; object-fit:contain; filter:grayscale(1); opacity:1; transition:filter .35s ease, transform .45s ease; }
+      .film-project-open:hover img { filter:grayscale(0); opacity:1; }
+      .project-meta { display:block; margin:16px 0 0; }
+      .project-meta h2 { font-size:clamp(27px,2.7vw,42px); margin-bottom:10px; }
+      .project-meta p { margin:4px 0 0; }
+      .photo-project-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+      .photo-project-open { display:block; position:relative; color:#fff; overflow:hidden; }
+      .photo-project-open img { display:block; width:100%; height:100%; aspect-ratio:16/9; object-fit:contain; background:#111; filter:grayscale(1); transition:filter .35s ease, transform .45s ease; }
+      .photo-project-open:hover img { filter:grayscale(0); transform:scale(1.015); }
+      .photo-project-open span { position:absolute; right:18px; bottom:15px; font:10px 'DM Mono',monospace; letter-spacing:.09em; text-transform:uppercase; }
+      .photo-project-meta { margin-top:16px; }.photo-project-meta h2 { font:500 clamp(28px,3vw,44px)/.95 'Playfair Display',serif; letter-spacing:-.05em; margin:0 0 10px; }.photo-project-meta p { margin:0; font:10px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.08em; }
+      @media (max-width:720px) { .film-project-grid,.photo-project-grid { grid-template-columns:1fr; gap:48px; } }
+    </style>
+  </head>
+  <body>
+    <header class="nav">
+      <a class="wordmark" href="#top">YADI <em>LIU</em></a>
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu" aria-label="Open menu">Menu</button>
     </header>
 
     <main id="top">
@@ -98,19 +134,18 @@
       <a class="email" href="mailto:hello@yadiliu.com">Let's make<br /><i>something.</i></a>
       <div class="footer-bottom"><span>© <span id="year"></span> Yadi Liu</span><span>Instagram &nbsp; Vimeo &nbsp; Email</span></div>
     </footer>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              window.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
-
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", (user) => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          window.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
