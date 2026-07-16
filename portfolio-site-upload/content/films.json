@@ -1,22 +1,74 @@
 {
   "projects": [
     {
+      "title": "Daughter of the apsara",
+      "slug": "daughter-of-the-apsara",
       "type": "Narrative Short Film",
       "role": "Director of Photography — Yadi Liu",
       "director": "HUI HUA",
-      "title": "Daughter of the apsara",
+      "cover": "/assets/uploads/椰林空地first-w.jpg",
       "images": [
-        {
-          "image": "/assets/uploads/椰林空地first-w.jpg"
-        },
-        {
-          "image": "/assets/uploads/bb278f393913ca9401a519cbc065c91b.jpg"
-        },
-        {
-          "image": "/assets/uploads/82fa9914da51a8fdc5f5fdac4e0ff928.jpg"
-        }
-      ],
-      "cover": "/assets/uploads/椰林空地first-w.jpg"
+        { "image": "/assets/uploads/椰林空地first-w.jpg" },
+        { "image": "/assets/uploads/bb278f393913ca9401a519cbc065c91b.jpg" },
+        { "image": "/assets/uploads/82fa9914da51a8fdc5f5fdac4e0ff928.jpg" }
+      ]
+    },
+    {
+      "title": "Asphalte",
+      "slug": "asphalte",
+      "type": "Narrative Short Film",
+      "role": "Director of Photography — Yadi Liu",
+      "director": "Director — Lara Cléret",
+      "cover": "/assets/photos/asphalte-cover.jpg",
+      "cover_alt": "Two women resting in a sunlit room",
+      "images": [
+        { "image": "/assets/photos/film-02.jpg", "alt": "Two women resting on the floor in a sunlit room", "caption": "Asphalte — Still 01" },
+        { "image": "/assets/photos/film-01.jpg", "alt": "Two women in a courtyard with a suitcase", "caption": "Asphalte — Still 02" },
+        { "image": "/assets/photos/film-03.jpg", "alt": "Two women sitting in a green park", "caption": "Asphalte — Still 03" },
+        { "image": "/assets/photos/film-04.jpg", "alt": "A woman resting beside a bed and a fan", "caption": "Asphalte — Still 04" },
+        { "image": "/assets/photos/film-05.jpg", "alt": "Two women in a playground", "caption": "Asphalte — Still 05" },
+        { "image": "/assets/photos/film-06.jpg", "alt": "Two women resting together indoors", "caption": "Asphalte — Still 06" },
+        { "image": "/assets/photos/film-07.jpg", "alt": "A woman beside a fan in warm sunlight", "caption": "Asphalte — Still 07" },
+        { "image": "/assets/photos/film-08.jpg", "alt": "A woman on the stairs with a telephone", "caption": "Asphalte — Still 08" },
+        { "image": "/assets/photos/film-09.jpg", "alt": "Two women eating ice cream", "caption": "Asphalte — Still 09" }
+      ]
+    },
+    {
+      "title": "After All",
+      "slug": "after-all",
+      "type": "Narrative Short Film",
+      "role": "Director of Photography — Yadi Liu",
+      "director": "Director — Zhongyan Liu",
+      "cover": "/assets/photos/after-all-01.jpg",
+      "cover_alt": "Two people sitting opposite each other in a studio",
+      "images": [
+        { "image": "/assets/photos/after-all-01.jpg", "alt": "Two people sitting opposite each other in a studio", "caption": "After All — Still 01" },
+        { "image": "/assets/photos/after-all-02.jpg", "alt": "A quiet courtyard outside a building", "caption": "After All — Still 02" },
+        { "image": "/assets/photos/after-all-03.jpg", "alt": "A person seated by a window", "caption": "After All — Still 03" },
+        { "image": "/assets/photos/after-all-04.jpg", "alt": "Light falling through an open doorway", "caption": "After All — Still 04" },
+        { "image": "/assets/photos/after-all-05.jpg", "alt": "A woman wearing glasses in a studio", "caption": "After All — Still 05" },
+        { "image": "/assets/photos/after-all-06.jpg", "alt": "Window light and shadows on a wall", "caption": "After All — Still 06" },
+        { "image": "/assets/photos/after-all-07.jpg", "alt": "A person seated in a patterned chair", "caption": "After All — Still 07" },
+        { "image": "/assets/photos/after-all-08.jpg", "alt": "Empty chairs in front of a window", "caption": "After All — Still 08" },
+        { "image": "/assets/photos/after-all-09.jpg", "alt": "An open window over a worktable", "caption": "After All — Still 09" }
+      ]
+    },
+    {
+      "title": "I Should Make Use of Water",
+      "slug": "water",
+      "type": "Narrative Short Film",
+      "role": "Director of Photography — Yadi Liu",
+      "director": "Director — Wen Zhao",
+      "cover": "/assets/photos/water-01.jpg",
+      "cover_alt": "A woman and child in a warm living room",
+      "images": [
+        { "image": "/assets/photos/water-01.jpg", "alt": "A woman and child in a warm living room", "caption": "I Should Make Use of Water — Still 01" },
+        { "image": "/assets/photos/water-02.jpg", "alt": "A woman sitting in a dark hallway", "caption": "I Should Make Use of Water — Still 02" },
+        { "image": "/assets/photos/water-03.jpg", "alt": "A woman in a shadowed interior", "caption": "I Should Make Use of Water — Still 03" },
+        { "image": "/assets/photos/water-04.jpg", "alt": "A woman standing in a doorway", "caption": "I Should Make Use of Water — Still 04" },
+        { "image": "/assets/photos/water-05.jpg", "alt": "A living room with a red sofa", "caption": "I Should Make Use of Water — Still 05" },
+        { "image": "/assets/photos/water-06.jpg", "alt": "A woman seated in a warm living room", "caption": "I Should Make Use of Water — Still 06" }
+      ]
     }
   ]
 }
