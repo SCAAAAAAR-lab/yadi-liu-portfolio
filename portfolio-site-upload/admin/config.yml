@@ -2,16 +2,60 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "assets/uploads"
+media_folder: "portfolio-site-upload/assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
+  - name: "site"
+    label: "Homepage"
+    files:
+      - name: "homepage"
+        label: "Homepage text"
+        file: "portfolio-site-upload/content/site.json"
+        format: "json"
+        fields:
+          - { label: "Hero line 1", name: "hero_line_1", widget: "string" }
+          - { label: "Hero line 2", name: "hero_line_2", widget: "string" }
+          - { label: "Film introduction", name: "film_intro", widget: "string" }
+          - { label: "Photography introduction", name: "photography_intro", widget: "string" }
+          - { label: "Commercial introduction", name: "commercial_intro", widget: "string" }
+          - { label: "Contact email", name: "email", widget: "string" }
+
+  - name: "films"
+    label: "Film"
+    files:
+      - name: "film_projects"
+        label: "Film projects"
+        file: "portfolio-site-upload/content/films.json"
+        format: "json"
+        fields:
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "URL name", name: "slug", widget: "string", hint: "Lowercase English, for example: my-new-film" }
+              - { label: "Type", name: "type", widget: "string", default: "Narrative Short Film" }
+              - { label: "Your role", name: "role", widget: "string", default: "Director of Photography — Yadi Liu" }
+              - { label: "Director", name: "director", widget: "string", required: false }
+              - { label: "Cover image", name: "cover", widget: "image" }
+              - { label: "Cover description", name: "cover_alt", widget: "string", required: false }
+              - label: "Film stills"
+                name: "images"
+                widget: "list"
+                summary: "{{fields.caption}}"
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Caption", name: "caption", widget: "string", required: false }
+                  - { label: "Description", name: "alt", widget: "string", required: false }
+
   - name: "photography"
     label: "Photography"
     files:
       - name: "black_and_white"
         label: "Black & White"
-        file: "content/photography-bw.json"
+        file: "portfolio-site-upload/content/photography-bw.json"
         format: "json"
         fields:
           - label: "Images"
@@ -24,7 +68,24 @@ collections:
               - { label: "Description", name: "alt", widget: "string", required: false }
       - name: "colour"
         label: "Colour"
-        file: "content/photography-colour.json"
+        file: "portfolio-site-upload/content/photography-colour.json"
+        format: "json"
+        fields:
+          - label: "Images"
+            name: "images"
+            widget: "list"
+            summary: "{{fields.caption}}"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Caption", name: "caption", widget: "string", required: false }
+              - { label: "Description", name: "alt", widget: "string", required: false }
+
+  - name: "commercial"
+    label: "Commercial"
+    files:
+      - name: "commercial_gallery"
+        label: "Commercial images"
+        file: "portfolio-site-upload/content/commercial.json"
         format: "json"
         fields:
           - label: "Images"
