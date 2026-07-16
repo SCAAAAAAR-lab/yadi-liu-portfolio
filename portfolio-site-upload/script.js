@@ -108,7 +108,7 @@ function filmProjectCard(project) {
   const type = escapeHtml(project.type);
   const role = escapeHtml(project.role);
   const director = escapeHtml(project.director);
-  const slug = encodeURIComponent(project.slug);
+  const slug = encodeURIComponent(project.slug || project.title.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''));
   return `<article class="film-project">
     <a class="film-project-open" href="film.html?project=${slug}" aria-label="Open ${title} project">
       <img src="${escapeHtml(project.cover)}" alt="${escapeHtml(project.cover_alt || project.title)}" />
@@ -136,7 +136,10 @@ async function loadFilmPage() {
   const slug = new URLSearchParams(window.location.search).get('project');
   try {
     const { projects } = await fetchJson('content/films.json');
-    const project = projects.find((item) => item.slug === slug) || projects[0];
+    const project = projects.find((item) => {
+      const itemSlug = item.slug || item.title.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      return itemSlug === slug;
+    }) || projects[0];
     if (!project) return;
     document.title = `${project.title} — Yadi Liu`;
     document.querySelector('[data-film-type]').textContent = project.type || 'Film';
